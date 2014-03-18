@@ -58,6 +58,10 @@ HTMLActuator.prototype.addTile = function (tile) {
   var classes = ["tile", "tile-" + tile.value, positionClass];
 
   if (tile.value > 2048) classes.push("tile-super");
+  
+  if (Math.pow(2,Math.round(Math.log(tile.value)/Math.log(2))) != tile.value) {
+    classes.push("tile-evil");
+  }
 
   this.applyClasses(wrapper, classes);
 
